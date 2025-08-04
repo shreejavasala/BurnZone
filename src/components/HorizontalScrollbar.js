@@ -7,7 +7,7 @@ import RightArrowIcon from '../assets/icons/right-arrow.png';
 import LeftArrowIcon from '../assets/icons/left-arrow.png';
 
 
-const HorizontalScrollbar = ({ data, bodyPart, setBodyPart}) => {
+const HorizontalScrollbar = ({ data, bodyPart, setBodyPart }) => {
 
   const LeftArrow = () => {
     const { scrollPrev } = useContext(VisibilityContext);

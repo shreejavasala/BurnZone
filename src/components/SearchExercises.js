@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Stack, Typography, TextField, Button} from '@mui/material';
 
-import { exercisesOptions, fetchData } from '../utils/fetchData';
+import { exercisesOptions, fetchData, fetchFilteredExercises } from '../utils/fetchData';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
 const SearchExercises = ({ setExercises, bodyPart, setBodyPart}) => {
@@ -10,30 +10,46 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart}) => {
 
   useEffect(() => {
     const fetchExercisesData = async () => {
-      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exercisesOptions);
+      const bodyPartsData = await fetchData('https://www.exercisedb.dev/api/v1/bodyparts', exercisesOptions);
 
-      setBodyParts(['all', ...bodyPartsData]);
+      if(Array.isArray(bodyPartsData.data)) {
+        setBodyParts(['all', ...bodyPartsData.data.map((item) => item.name.toLowerCase())]);
+      }else {
+        console.log('Expected array', bodyPartsData);
+      }
+      // console.log(bodyParts);
     }
-
     fetchExercisesData();
-  }, [])
+  }, []);
 
   const handleSearch = async () => {
-    if(search) {
-      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exercisesOptions);
+    const searchTerm = search.toLowerCase().trim();
 
-      const searchedExercises = exercisesData.filter(
-        (exercise) => exercise.name.toLowerCase().includes(search)
-        || exercise.target.toLowerCase().includes(search)
-        || exercise.equipment.toLowerCase().includes(search)
-        || exercise.bodyPart.toLowerCase().includes(search)
-      )
+    const exercisesData = await fetchFilteredExercises(searchTerm);
+    // console.log('Filtered Exercises:', exercisesData);
+    setExercises(exercisesData); 
+
+      // const searchedExercises = exercisesData.data.filter(
+      //   (exercise) => exercise.name.toLowerCase().includes(normalizedSearch)
+
+      //   || (Array.isArray(exercise.targetMuscles) && exercise.targetMuscles.some((muscle) => muscle.toLowerCase().includes(normalizedSearch)))
+
+      //   || (Array.isArray(exercise.equipments) && exercise.equipments.some((equipment) => equipment.toLowerCase().includes(normalizedSearch)))
+
+      //   || (Array.isArray(exercise.bodyParts) && exercise.bodyParts.some((bodyPart) => bodyPart.toLowerCase().includes(normalizedSearch)))
+      // )
       
-      setSearch('');
-      setExercises(searchedExercises);
-    }
-  }
+      // setSearch('');
+      // setExercises(searchedExercises);
+      
+      // console.log('Search Term:', normalizedSearch);
+      // console.log('Matched Exercises:', searchedExercises.map(e => ({
+      //   name: e.name,
+      //   targetMuscles: e.targetMuscles,
+      //   bodyParts: e.bodyParts
+      // })));
 
+    }
 
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
@@ -60,7 +76,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart}) => {
           borderRadius:'40px'
         }}
         value={search}
-        onChange={(e) => setSearch(e.target.value.toLowerCase())}
+        onChange={(e) => setSearch(e.target.value)}
         placeholder="Search Exercises"
         type="text"
       />
