@@ -1,11 +1,37 @@
 import React, { useEffect, useState } from 'react'
 import { Box, Stack, Typography, TextField, Button} from '@mui/material';
 
-const SearchExercises = () => {
+import { exercisesOptions, fetchData } from '../utils/fetchData';
+import HorizontalScrollbar from './HorizontalScrollbar';
+
+const SearchExercises = ({ setExercises, bodyPart, setBodyPart}) => {
   const [search, setSearch] = useState('');
+  const [bodyParts, setBodyParts] = useState([]);
+
+  useEffect(() => {
+    const fetchExercisesData = async () => {
+      const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exercisesOptions);
+
+      setBodyParts(['all', ...bodyPartsData]);
+    }
+
+    fetchExercisesData();
+  }, [])
 
   const handleSearch = async () => {
-    // const exerciseDate = await fetchData();
+    if(search) {
+      const exercisesData = await fetchData('https://exercisedb.p.rapidapi.com/exercises', exercisesOptions);
+
+      const searchedExercises = exercisesData.filter(
+        (exercise) => exercise.name.toLowerCase().includes(search)
+        || exercise.target.toLowerCase().includes(search)
+        || exercise.equipment.toLowerCase().includes(search)
+        || exercise.bodyPart.toLowerCase().includes(search)
+      )
+      
+      setSearch('');
+      setExercises(searchedExercises);
+    }
   }
 
 
@@ -49,9 +75,14 @@ const SearchExercises = () => {
           position: 'absolute',
           right: '0'
         }}
-        onClick="handleSearch">
+        onClick={handleSearch}>
         Search
       </Button>
+    </Box>
+    <Box sx={{
+      position: 'relative', width: '100%', p: '20px'
+    }}>
+      <HorizontalScrollbar data={bodyParts} bodyPart={bodyPart} setBodyPart={setBodyPart}/>
     </Box>
     </Stack>
   )
