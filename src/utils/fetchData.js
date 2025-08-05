@@ -17,44 +17,53 @@ export const fetchData = async (url, options) => {
 export const fetchFilteredExercises = async (term) => {
 
   const searchTerm = searchAliasMap[term] || term;
-  // console.log(searchTerm);
-
-  const url = `https://www.exercisedb.dev/api/v1/exercises/filter?offset=0&limit=30&sortBy=bodyParts&sortOrder=desc&search=${searchTerm}&equipments=${searchTerm}&bodyParts=${searchTerm}`;
 
   try {
-    const response = await fetch(url, exercisesOptions);
-    const data = await response.json();
 
-    // console.log('API raw data:', data);
-    return data?.data || [];
-  } catch (error) {
-    console.error('Error fetching exercises:', error);
-    return [];
-  }
+    const bodyPartsData = await fetchData('https://www.exercisedb.dev/api/v1/bodyparts', exercisesOptions);
+    const equipmentData = await fetchData('https://www.exercisedb.dev/api/v1/equipments', exercisesOptions);
+    const musclesData = await fetchData('https://www.exercisedb.dev/api/v1/muscles', exercisesOptions);
 
-  /*
-  const baseUrl = 'https://www.exercisedb.dev/api/v1/exercises/filter';
+    console.log(bodyPartsData);
+    console.log(equipmentData);
+    console.log(musclesData);
+    let matchType = null;
+    
+    if (bodyPartsData.data.some((bp) => bp.name.toLowerCase() === searchTerm)) {
+      matchType = 'bodyPart';
+    } else if (equipmentData.data.some((eq) => eq.name.toLowerCase() === searchTerm)) {
+      matchType = 'equipment';
+    } else if (musclesData.data.some((muscle) => muscle.name.toLowerCase() === searchTerm)) {
+      matchType = 'muscle';
+    }
+    
+    console.log(matchType);
+    let url;
 
-  const params = new URLSearchParams();
-  params.append('offset', 0);
-  params.append('limit', 30); // or whatever you want
-  params.append('search', searchTerm);         // search against name
-  params.append('muscles', searchTerm);        // search against muscles
-  params.append('bodyParts', searchTerm);      // search against body parts
-  params.append('equipment', searchTerm);      // search against equipment
-  params.append('sortBy', 'name');
-  params.append('sortOrder', 'desc');
+    switch(matchType) {
+      case 'bodyPart':
+        url = `https://www.exercisedb.dev/api/v1/bodyparts/${searchTerm}/exercises?offset=0&limit=30`;
+        break;
 
-  const url = `${baseUrl}?${params.toString()}`;
-  console.log(searchTerm);
-  console.log('Calling API with URL:', url);
+      case 'equipment':
+        url = `https://www.exercisedb.dev/api/v1/equipments/${searchTerm}/exercises?offset=0&limit=30`;
+        break;
 
-  try {
+      case 'muscle':
+        url = `https://www.exercisedb.dev/api/v1/muscles/${searchTerm}/exercises?offset=0&limit=30`;
+        break;
+
+      default: 
+        url = `http://www.exercisedb.dev/api/v1/exercises/search?offset=0&limit=30&q=${searchTerm}&threshold=0.3`;
+    }   
+
+    console.log(url);
     const data = await fetchData(url, exercisesOptions);
     return data?.data || [];
+
   } catch (error) {
-    console.error('Error fetching filtered exercises:', error);
+    console.log('Error fetching filtered exercises: ', error);
     return [];
   }
-    */
+
 };

@@ -26,28 +26,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart}) => {
     const searchTerm = search.toLowerCase().trim();
 
     const exercisesData = await fetchFilteredExercises(searchTerm);
-    // console.log('Filtered Exercises:', exercisesData);
-    setExercises(exercisesData); 
-
-      // const searchedExercises = exercisesData.data.filter(
-      //   (exercise) => exercise.name.toLowerCase().includes(normalizedSearch)
-
-      //   || (Array.isArray(exercise.targetMuscles) && exercise.targetMuscles.some((muscle) => muscle.toLowerCase().includes(normalizedSearch)))
-
-      //   || (Array.isArray(exercise.equipments) && exercise.equipments.some((equipment) => equipment.toLowerCase().includes(normalizedSearch)))
-
-      //   || (Array.isArray(exercise.bodyParts) && exercise.bodyParts.some((bodyPart) => bodyPart.toLowerCase().includes(normalizedSearch)))
-      // )
-      
-      // setSearch('');
-      // setExercises(searchedExercises);
-      
-      // console.log('Search Term:', normalizedSearch);
-      // console.log('Matched Exercises:', searchedExercises.map(e => ({
-      //   name: e.name,
-      //   targetMuscles: e.targetMuscles,
-      //   bodyParts: e.bodyParts
-      // })));
+    setExercises(exercisesData);
 
     }
 
