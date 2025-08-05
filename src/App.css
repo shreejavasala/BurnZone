@@ -7,7 +7,6 @@ body {
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
-
 }
 
 ::-webkit-scrollbar {
@@ -64,7 +63,7 @@ body {
 }
 
 .exercise-card {
-  width: 400px;
+  width: 390px;
   height: 445px;
   background: #fff;
   border-top: 4px solid #FF2625;
@@ -89,7 +88,7 @@ body {
 
 .exercise-card:hover,
 .bodyPart-card:hover {
-  transform: scale(1.1, 1.1);
+  transform: scale(1.08, 1.08);
 }
 
 .search-btn:hover {

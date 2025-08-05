@@ -10,7 +10,7 @@ const Home = () => {
 
   const [bodyPart, setBodyPart] = useState('all');
   const [exercises, setExercises] = useState([]);
-  // console.log(exercises);
+  console.log(bodyPart);
 
   return (
     <Box>

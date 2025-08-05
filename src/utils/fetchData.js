@@ -10,7 +10,6 @@ export const exercisesOptions = {
 export const fetchData = async (url, options) => {
   const response = await fetch(url, options);
   const data = await response.json();
-  
   return data;
 }
 
@@ -42,19 +41,19 @@ export const fetchFilteredExercises = async (term) => {
 
     switch(matchType) {
       case 'bodyPart':
-        url = `https://www.exercisedb.dev/api/v1/bodyparts/${searchTerm}/exercises?offset=0&limit=30`;
+        url = `https://www.exercisedb.dev/api/v1/bodyparts/${searchTerm}/exercises?offset=0&limit=100`;
         break;
 
       case 'equipment':
-        url = `https://www.exercisedb.dev/api/v1/equipments/${searchTerm}/exercises?offset=0&limit=30`;
+        url = `https://www.exercisedb.dev/api/v1/equipments/${searchTerm}/exercises?offset=0&limit=100`;
         break;
 
       case 'muscle':
-        url = `https://www.exercisedb.dev/api/v1/muscles/${searchTerm}/exercises?offset=0&limit=30`;
+        url = `https://www.exercisedb.dev/api/v1/muscles/${searchTerm}/exercises?offset=0&limit=100`;
         break;
 
       default: 
-        url = `http://www.exercisedb.dev/api/v1/exercises/search?offset=0&limit=30&q=${searchTerm}&threshold=0.3`;
+        url = `http://www.exercisedb.dev/api/v1/exercises/search?offset=0&limit=100&q=${searchTerm}&threshold=0.3`;
     }   
 
     console.log(url);
