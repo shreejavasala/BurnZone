@@ -33,6 +33,11 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
     fetchExercisesData();
   }, [bodyPart]);
 
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [exercises]);
+
   return (
     <Box id="exercises"
       sx={{mt: { lg: '110px'}}}
