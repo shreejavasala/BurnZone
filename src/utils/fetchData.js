@@ -53,7 +53,7 @@ export const fetchFilteredExercises = async (term) => {
         break;
 
       default: 
-        url = `http://www.exercisedb.dev/api/v1/exercises/search?offset=0&limit=100&q=${searchTerm}&threshold=0.3`;
+        url = `https://www.exercisedb.dev/api/v1/exercises/search?offset=0&limit=100&q=${searchTerm}&threshold=0.3`;
     }   
 
     console.log(url);

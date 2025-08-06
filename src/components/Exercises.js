@@ -24,7 +24,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       let exercisesData = [];
 
       if(bodyPart === 'all') {
-        exercisesData = await fetchData('http://www.exercisedb.dev/api/v1/exercises?offset=0&limit=100&&sortBy=targetMuscles&sortOrder=desc', exercisesOptions);
+        exercisesData = await fetchData('https://www.exercisedb.dev/api/v1/exercises?offset=0&limit=100&&sortBy=targetMuscles&sortOrder=desc', exercisesOptions);
       }else {
         exercisesData = await fetchData(`https://www.exercisedb.dev/api/v1/bodyparts/${bodyPart}/exercises?offset=0&limit=100`, exercisesOptions);
       }
