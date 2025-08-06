@@ -22,10 +22,6 @@ export const fetchFilteredExercises = async (term) => {
     const bodyPartsData = await fetchData('https://www.exercisedb.dev/api/v1/bodyparts', exercisesOptions);
     const equipmentData = await fetchData('https://www.exercisedb.dev/api/v1/equipments', exercisesOptions);
     const musclesData = await fetchData('https://www.exercisedb.dev/api/v1/muscles', exercisesOptions);
-
-    console.log(bodyPartsData);
-    console.log(equipmentData);
-    console.log(musclesData);
     let matchType = null;
     
     if (bodyPartsData.data.some((bp) => bp.name.toLowerCase() === searchTerm)) {
@@ -35,8 +31,7 @@ export const fetchFilteredExercises = async (term) => {
     } else if (musclesData.data.some((muscle) => muscle.name.toLowerCase() === searchTerm)) {
       matchType = 'muscle';
     }
-    
-    console.log(matchType);
+  
     let url;
 
     switch(matchType) {
@@ -56,7 +51,6 @@ export const fetchFilteredExercises = async (term) => {
         url = `https://www.exercisedb.dev/api/v1/exercises/search?offset=0&limit=100&q=${searchTerm}&threshold=0.3`;
     }   
 
-    console.log(url);
     const data = await fetchData(url, exercisesOptions);
     return data?.data || [];
 
@@ -64,7 +58,6 @@ export const fetchFilteredExercises = async (term) => {
     console.log('Error fetching filtered exercises: ', error);
     return [];
   }
-
 };
 
 

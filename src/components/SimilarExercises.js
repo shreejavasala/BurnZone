@@ -18,7 +18,7 @@ const SimilarExercises = ({targetMuscleExercises, equipmentExercises}) => {
         Similar <span style={{color: "#FF2625"}}>Target Muscle </span>exercises
       </Typography>
       <Stack direction="row" sx={{p: '2', position: 'relative'}}>
-        {targetMuscleExercises.length ? <HorizontalScrollbar data={targetMuscleExercises} onClickItem={handleExerciseClick}/> : 
+        {targetMuscleExercises.length ? <HorizontalScrollbar data={targetMuscleExercises} onClickItem={handleExerciseClick} isBodyParts={false}/> : 
         <Loader />}
       </Stack>
 
@@ -26,8 +26,8 @@ const SimilarExercises = ({targetMuscleExercises, equipmentExercises}) => {
         Similar <span style={{color: "#FF2625", }}>Equipment</span> Exercises
       </Typography>
       <Stack direction="row" sx={{p: '2', position: 'relative'}}>
-        {equipmentExercises.length ? <HorizontalScrollbar data={equipmentExercises}
-        onClickItem={handleExerciseClick}/> : 
+        {equipmentExercises.length ? <HorizontalScrollbar data={equipmentExercises} onClickItem={handleExerciseClick}
+        isBodyParts={false}/> : 
         <Loader />}
       </Stack>
     </Box>

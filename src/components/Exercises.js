@@ -16,7 +16,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
   const paginate = (e, value) => {
     setCurrentPage(value);
-    window.scrollTo({ top: 1800, behavior:'smooth'})
+    window.scrollTo({ top: 1780, behavior:'smooth'})
   }
   
   useEffect(() => {
@@ -44,8 +44,8 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       mt="50px"
       p="20px"
     >
-      <Typography variant="h3" mb="46px" px="20px">
-        showing results
+      <Typography variant="h4" mb="46px" px="20px">
+        Showing Results
       </Typography>
       <Stack 
         direction="row" 

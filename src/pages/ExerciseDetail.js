@@ -15,7 +15,6 @@ const ExerciseDetail = () => {
   const [equipmentExercises, setEquipmentExercises] = useState([]);
 
   const { exerciseId } = useParams();
-  // console.log(exerciseId);
 
   useEffect(() => {
     window.scrollTo({
@@ -30,7 +29,6 @@ const ExerciseDetail = () => {
       setExerciseDetail(exerciseDetailData.data);
 
       const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.data.name}`, youtubeOptions);
-      console.log(exerciseVideosData)
       setExerciseVideos(exerciseVideosData.contents);
 
       const targetMusclesExercisesData = await fetchData(`${exerciseDbUrl}/muscles/${exerciseDetailData.data.targetMuscles[0]}/exercises?offset=0&limit=20`, exercisesOptions);
