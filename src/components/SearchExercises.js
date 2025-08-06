@@ -17,7 +17,6 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart}) => {
       }else {
         console.log('Expected array', bodyPartsData);
       }
-      // console.log(bodyParts);
     }
     fetchExercisesData();
   }, []);

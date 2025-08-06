@@ -13,8 +13,8 @@ const SimilarExercises = ({targetMuscleExercises, equipmentExercises}) => {
   };
 
   return (
-    <Box sx={{ mt: {lg: '90px', xs: '10',  p: "10px"}}}>
-      <Typography variant="h4" mt={5} mb={5} px={5}  fontWeight="bold">
+    <Box sx={{ mt: {lg: '100px', xs: '10'}, p: "10px 10px"}}>
+      <Typography variant="h4" mt={2} mb={5} px={5}  fontWeight="bold">
         Similar <span style={{color: "#FF2625"}}>Target Muscle </span>exercises
       </Typography>
       <Stack direction="row" sx={{p: '2', position: 'relative'}}>

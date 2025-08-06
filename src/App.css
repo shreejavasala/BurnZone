@@ -139,8 +139,6 @@ body {
   .exercise-video {
     width: 320px;
     height: 300px;
-    padding: 0;
-    
   }
 
 }
@@ -149,4 +147,5 @@ body {
   .exercise-card {
     width: 280px;
   }
+
 }
