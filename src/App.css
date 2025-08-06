@@ -29,7 +29,7 @@ body {
   font-size: 25px;
   border-radius: 4px;
   position: absolute;
-  bottom: -20px;
+  bottom: -40px;
   right: 80px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
@@ -66,7 +66,7 @@ body {
 
 .exercise-card {
   width: 390px;
-  height: 445px;
+  height: 460px;
   background: #fff;
   border-top: 4px solid #FF2625;
   border-bottom-left-radius: 20px;
@@ -121,6 +121,7 @@ body {
 
   .react-horizontal-scrolling-menu--scroll-container {
     width: 500px;
+    scroll-behavior: smooth;
   }
 
   .left-arrow,

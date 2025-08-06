@@ -9,15 +9,14 @@ import ExerciseCard from './ExerciseCard'
 
 
 const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isBodyParts, onClickItem}) => {
+  const firstItem = isBodyParts ? data[0] : data[0].exerciseId;
 
-  console.log(data);
-  const firstItemId = data?.exerciseId || data?.[0];
   const LeftArrow = () => {
     const { scrollPrev } = useContext(VisibilityContext);
 
     return (
       <Typography onClick={() => scrollPrev()} className="right-arrow">
-        <img src={LeftArrowIcon} alt="right-arrow" />
+        <img src={LeftArrowIcon} alt="left-arrow" />
       </Typography>
     );
   };
@@ -33,12 +32,19 @@ const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isBodyParts, onClick
     };
 
   return (
-    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} selected={firstItemId}>
-      {data.map((item, index) => (
+    <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow} visibilityObserverProps={{root: null, threshold: 0.5}} selected={firstItem}>
+      {data.map((item) => {
+        let id;
+        if(isBodyParts) {
+          id = item;
+        }else {
+          id = item.exerciseId || item.name;
+        }
+      return (
         <Box   
-        key={index}
-        itemId={index}
-        title={index}
+        key = {id}
+        itemId={id}
+        title={item.name}
         m = "0 40px"
         onClick={() => !isBodyParts && onClickItem?.(item)}
         sx={{cursor: !isBodyParts ? 'pointer' : 'default'}}
@@ -49,6 +55,7 @@ const HorizontalScrollbar = ({ data, bodyPart, setBodyPart, isBodyParts, onClick
           : <ExerciseCard exercise={item} />}
         </Box>
       )
+     }
     )}
     </ScrollMenu>
   )

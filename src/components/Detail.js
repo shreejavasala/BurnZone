@@ -24,7 +24,9 @@ const Detail = ({ exerciseDetail }) => {
   ]
   return (
     <Stack gap="50px" sx={{flexDirection: { lg: 'row'}, p: '20px', alignItems: 'center', mb: { lg: '30px', xs: '0'}}}>
-      <img src={gifUrl} alt={name} Loading="lazy" className="detail-image"/>
+      <a href="#exercise-videos">
+        <img src={gifUrl} alt={name} Loading="lazy" className="detail-image"/>
+      </a>
       <Stack sx={{gap: { lg: '30px', xs: '20px' }}}>
         <Typography variant="h3" textTransform="capitalize" mt={-2} fontWeight="bold">
           {name}

@@ -21,6 +21,7 @@ const ExerciseDetail = () => {
       top: 0,
       behavior: 'auto'
     });
+
     const fetchExercisesData = async () => {
       const exerciseDbUrl = 'https://www.exercisedb.dev/api/v1';
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
@@ -37,13 +38,16 @@ const ExerciseDetail = () => {
       const equipmentExercisesData = await fetchData(`${exerciseDbUrl}/equipments/${exerciseDetailData.data.equipments[0]}/exercises?offset=0&limit=20`, exercisesOptions);
       setEquipmentExercises(equipmentExercisesData.data);
     }
-
     fetchExercisesData();
+
   }, [exerciseId]);
+
   return (
     <Box>
       <Detail exerciseDetail={exerciseDetail}/>
-      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
+      <Box id="exercise-videos">
+        <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
+      </Box>
       <Box id="similar-exercises">
         <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises} />
       </Box>
