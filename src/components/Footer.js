@@ -1,14 +1,16 @@
 import React from 'react'
 import { Box, Stack, Typography } from '@mui/material';
 
-import Logo from '../assets/images/Logo-1.png';
+import Logo from '../assets/images/logo2.png';
 
 const Footer = () => {
   return (
     <Box mt="80px" bgcolor="#FFF3F4">
       <Stack gap="40px" alignItems="center" px="40px" pt="24px">
-        <img src={Logo} alt="logo" width="200px" height="40px"/>
-        <Typography variant="h5" pb="40px"> 
+        <Typography variant="h5" fontWeight="bold" color="#FF2625" mb="-10px">
+           BurnZone
+          </Typography>
+        <Typography variant="h6" pb="40px"> 
           Made with ❤️ by Shreeja Vasala
         </Typography>
       </Stack>

@@ -27,9 +27,8 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart}) => {
 
     const exercisesData = await fetchFilteredExercises(searchTerm);
     setExercises(exercisesData);
-
     }
-
+    
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
     <Typography 
@@ -70,7 +69,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart}) => {
           position: 'absolute',
           right: '0'
         }}
-        onClick={handleSearch}>
+        onClick={handleSearch} href="#exercises" >
         Search
       </Button>
     </Box>

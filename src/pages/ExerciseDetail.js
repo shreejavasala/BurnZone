@@ -20,7 +20,7 @@ const ExerciseDetail = () => {
   useEffect(() => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: 'auto'
     });
     const fetchExercisesData = async () => {
       const exerciseDbUrl = 'https://www.exercisedb.dev/api/v1';
@@ -46,7 +46,9 @@ const ExerciseDetail = () => {
     <Box>
       <Detail exerciseDetail={exerciseDetail}/>
       <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
-      <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises}/>
+      <Box id="similar-exercises">
+        <SimilarExercises targetMuscleExercises={targetMuscleExercises} equipmentExercises={equipmentExercises} />
+      </Box>
     </Box>
   )
 }

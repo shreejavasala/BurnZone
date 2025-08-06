@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: 'Josefin Sans';
   background-color: #FFFAFB;
@@ -57,9 +60,8 @@ body {
   right: 40px;
   top: 0px;
   width: 700px;
-  height: 900px;
-  margin-top: -330px;
-
+  height: 800px;
+  margin-top: -270px;
 }
 
 .exercise-card {
@@ -75,6 +77,7 @@ body {
   padding-bottom: 10px;
   transform: scale(1, 1);
   transition: 0.3s all ease-in-out;
+  border-radius: 10px;
 }
 
 .exercise-card img {
@@ -99,10 +102,14 @@ body {
 .exercise-video {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 25px;
   width: 387px;
   height: 381px;
   text-decoration: none;
+  padding: 20px;
+  background-color: #FFF3F4;
+  border-radius: 5px;
+  margin-bottom: 10px
 }
 
 @media screen and (max-width:1200px) {
@@ -132,6 +139,8 @@ body {
   .exercise-video {
     width: 320px;
     height: 300px;
+    padding: 0;
+    
   }
 
 }

@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Stack, Typography } from '@mui/material';
 
 import HorizontalScrollbar from './HorizontalScrollbar.js';
 import Loader from './Loader.js';
-import Detail from './Detail.js';
 
 const SimilarExercises = ({targetMuscleExercises, equipmentExercises}) => {
+  const [selectedExercise, setSelectedExercise] = useState(null);
+
+  const handleExerciseClick = (exercise) => {
+    setSelectedExercise(exercise);
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  };
+
   return (
-    <Box sx={{ mt: {lg: '100px', xs: '10'}}}>
-      <Typography variant="h4" mb={5} px={5}  fontWeight="bold">
+    <Box sx={{ mt: {lg: '90px', xs: '10',  p: "10px"}}}>
+      <Typography variant="h4" mt={5} mb={5} px={5}  fontWeight="bold">
         Similar <span style={{color: "#FF2625"}}>Target Muscle </span>exercises
       </Typography>
-      <Stack direction="row" sx={{p: '2', position: 'relative'}} onClick={}>
-        {targetMuscleExercises.length ? <HorizontalScrollbar data={targetMuscleExercises}/> : 
+      <Stack direction="row" sx={{p: '2', position: 'relative'}}>
+        {targetMuscleExercises.length ? <HorizontalScrollbar data={targetMuscleExercises} onClickItem={handleExerciseClick}/> : 
         <Loader />}
       </Stack>
 
@@ -20,7 +26,8 @@ const SimilarExercises = ({targetMuscleExercises, equipmentExercises}) => {
         Similar <span style={{color: "#FF2625", }}>Equipment</span> Exercises
       </Typography>
       <Stack direction="row" sx={{p: '2', position: 'relative'}}>
-        {equipmentExercises.length ? <HorizontalScrollbar data={equipmentExercises}/> : 
+        {equipmentExercises.length ? <HorizontalScrollbar data={equipmentExercises}
+        onClickItem={handleExerciseClick}/> : 
         <Loader />}
       </Stack>
     </Box>
