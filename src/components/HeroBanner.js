@@ -6,10 +6,10 @@ import HeroBannerImg from '../assets/images/banner.png';
 const HeroBanner = () => {
   return (
     <Box sx={{
-      mt: { lg: '212px', xs: '70px'},
+      mt: { lg: '200px', xs: '70px'},
       ml: { sm: '50px'}
     }} position="relative" p="20px">
-      <Typography color="#FF2625" fontWeight="600" fontSize="26px">
+      <Typography color="#FF2625" fontWeight="600" fontSize="28px">
         BurnZone
       </Typography>
       <Typography fontWeight={700}

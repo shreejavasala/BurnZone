@@ -18,6 +18,10 @@ const ExerciseDetail = () => {
   // console.log(exerciseId);
 
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
     const fetchExercisesData = async () => {
       const exerciseDbUrl = 'https://www.exercisedb.dev/api/v1';
       const youtubeSearchUrl = 'https://youtube-search-and-download.p.rapidapi.com';
