@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+#  🚀 BurnZone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A **full-featured fitness web app** built with **React** and **Material UI**.  
+Discover exercises, watch video tutorials, and get similar workout suggestions—all in one intuitive interface.
 
-## Available Scripts
+Clean, intuitive UI for both mobile and desktop users.
+Explore a wide range of exercises with multimedia support.
+Easy navigation and built using modern React practice.
 
-In the project directory, you can run:
+ **Hosted Live**: [https://burnzone-shreejavasalas-projects.vercel.app](https://burnzone-shreejavasalas-projects.vercel.app)  
+ Built by **Shreeja Vasala**
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##  🖥️ Tech Stack
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+| Technology           | Purpose                          |
+|----------------------|-----------------------------------|
+| **React**            | Frontend library                  |
+| **Material UI**      | Component styling & layout design |
+| **HTML / CSS**       | Core web markup and styles        |
+| **JavaScript (ES6+)**| App behavior and logic            |
+| **exerciseDB API**   | Fetches the exercise Data         |
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 📌 Features
 
-### `npm run build`
+- **Exercise Search** — Find exercises by name, category or equipment type with multimedia support(gifs)
+- **Advanced Search** - Advanced search feature with fuzzy matching to filter the exercises based on search
+- **Video Tutorials** — Watch demonstration video suggestions for exercises to follow along
+- **Similar Suggestions** — Get recommendations for related workouts
+- **Responsive UI** — Built with Material UI for sleek design
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Check out the API (exerciseDB.dev) :
+ExerciseDB API is an open-source, developer-friendly fitness exercise database offering access to 1,300+ structured workouts (V1) — with detailed metadata like body part, target muscles, equipment, visual guides (GIFs/images), and instructions  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+API: [https://www.exercisedb.dev](https://www.exercisedb.dev)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 📦 🛠️ ⬇️ Getting Started
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Clone the repository
+```bash
+git clone https://github.com/shreejavasala/BurnZone.git
+cd BurnZone
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Install dependencies
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+npm install
+```
 
-## Learn More
+### Start the development server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+View the app at:  [https://burnzone-shreejavasalas-projects.vercel.app](https://burnzone-shreejavasalas-projects.vercel.app)  
 
-### Code Splitting
+### Build for Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+To bundle and optimize the app for deployment:
 
-### Analyzing the Bundle Size
+```bash
+npm run build
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Production-ready files will be in the build/ directory.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
